@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public interface SpringDataPriceRepository extends JpaRepository<Long, PriceEntity> {
+public interface SpringDataPriceRepository extends JpaRepository<PriceEntity, Long> {
 
     @Query("""
             SELECT price FROM PriceEntity price

@@ -1,5 +1,6 @@
 package com.alexgrchdez.testjava2025.infrastructure.persistance;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -12,10 +13,15 @@ import java.time.LocalDateTime;
 public class PriceEntity {
 
     @Id
+    @Column(name="rate_id")
     private Long rateId;
+    @Column(name="brand_id")
     private Long brandId;
+    @Column(name="product_id")
     private Long productId;
+    @Column(name="start_date_time")
     private LocalDateTime startDateTime;
+    @Column(name="end_date_time")
     private LocalDateTime endDateTime;
     private Integer priority;
     private BigDecimal price;
