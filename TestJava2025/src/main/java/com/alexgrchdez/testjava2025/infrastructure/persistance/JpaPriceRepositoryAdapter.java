@@ -5,7 +5,6 @@ import com.alexgrchdez.testjava2025.domain.model.ApplicableRate;
 import com.alexgrchdez.testjava2025.domain.model.CalculateApplicableRateCommand;
 import com.alexgrchdez.testjava2025.domain.model.Money;
 import com.alexgrchdez.testjava2025.domain.model.Period;
-import com.alexgrchdez.testjava2025.infrastructure.controller.dto.PriceEntity;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

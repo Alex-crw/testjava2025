@@ -1,4 +1,4 @@
-package com.alexgrchdez.testjava2025.infrastructure.controller.dto;
+package com.alexgrchdez.testjava2025.infrastructure.persistance;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
