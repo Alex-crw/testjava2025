@@ -1,9 +1,10 @@
-package com.alexgrchdez.testjava2025.infrastructure.controller.dto;
+package com.alexgrchdez.testjava2025.infrastructure.controller;
 
 import com.alexgrchdez.testjava2025.application.port.in.CalculateApplicableRateUseCase;
 import com.alexgrchdez.testjava2025.domain.model.ApplicableRate;
 import com.alexgrchdez.testjava2025.domain.model.CalculateApplicableRateCommand;
-import com.alexgrchdez.testjava2025.infrastructure.controller.CalculateApplicableRateResponse;
+import com.alexgrchdez.testjava2025.infrastructure.controller.dto.ApiErrorResponse;
+import com.alexgrchdez.testjava2025.infrastructure.controller.dto.CalculateApplicableRateResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;

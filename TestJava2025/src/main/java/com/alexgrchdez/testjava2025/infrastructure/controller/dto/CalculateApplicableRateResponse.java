@@ -1,4 +1,4 @@
-package com.alexgrchdez.testjava2025.infrastructure.controller;
+package com.alexgrchdez.testjava2025.infrastructure.controller.dto;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

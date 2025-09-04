@@ -11,4 +11,19 @@ public record ApiErrorResponse( @Schema(description = "Internal code error", exa
     public ApiErrorResponse( String code, String message ) {
         this(code, message, LocalDateTime.now() );
     }
+
+    @Override
+    public String code() {
+        return code;
+    }
+
+    @Override
+    public String message() {
+        return message;
+    }
+
+    @Override
+    public LocalDateTime timestamp() {
+        return timestamp;
+    }
 }

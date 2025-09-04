@@ -27,20 +27,6 @@ public class PriceEntity {
     private BigDecimal price;
     private String currency;
 
-    public PriceEntity(Long rateId, Long brandId, Long productId, LocalDateTime startDateTime, Integer priority, LocalDateTime endDateTime, BigDecimal price, String currency) {
-        this.rateId = rateId;
-        this.brandId = brandId;
-        this.productId = productId;
-        this.startDateTime = startDateTime;
-        this.priority = priority;
-        this.endDateTime = endDateTime;
-        this.price = price;
-        this.currency = currency;
-    }
-
-    public PriceEntity() {
-
-    }
 
     public Long getRateId() {
         return rateId;
