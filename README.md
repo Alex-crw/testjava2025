@@ -10,6 +10,7 @@ This application is a REST service dveloped in Spring boot that allows to query 
     <li>Centralized exception handling with ControllerAdvice</li>
     <li>Api documentation with Swagger</li>
     <li>Unit testing and cover with JUnit, Mockito and Jacoco</li>
+    <li>GithubAction workflow + push to Docker</li>
 </ul>
 
 ## Tech stack
@@ -24,6 +25,8 @@ This application is a REST service dveloped in Spring boot that allows to query 
     <li>Jacoco</li>
     <li>Swagger/OpenAPI</li>
     <li>Maven</li>
+    <li>Docker</li>
+    <li>Github Actions</li>
 </ul>
 
 ## How to run it?
@@ -40,3 +43,13 @@ Api REST availabile here:
 
 Swagger/OpenAPI:
 <code>http://localhost:8080/swagger-ui.html</code>
+
+## How to run it with docker?
+Push on master branch triggers Github workflow that builds and pushes the latest version to docker hub. To run it from docker:
+
+<code>docker pull alexcrw94/testjava2025:latest</code>
+<code>docker run -p 8080:8080 alexcrw94/testjava2025:latest</code>
+
+
+
+

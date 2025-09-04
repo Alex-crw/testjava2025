@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+    paths:
+      - 'TestJava2025/**'
   release:
     types: [created]
 
