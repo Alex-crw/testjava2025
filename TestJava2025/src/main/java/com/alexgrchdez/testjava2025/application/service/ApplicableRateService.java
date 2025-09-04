@@ -16,6 +16,11 @@ public class ApplicableRateService implements CalculateApplicableRateUseCase {
         this.priceRepositoryOutPort = priceRepositoryOutPort;
     }
 
+    /**
+     * Calculate applicable rate given input parameters.
+     * @param calculateApplicableRateCommand dto including input parameters to calculate rate.
+     * @return the applicable rate or ApplicableRateNotFoundException if no rate found.
+     */
     @Override
     public ApplicableRate getApplicableRate(CalculateApplicableRateCommand calculateApplicableRateCommand) {
         return this.priceRepositoryOutPort.getApplicableRate(calculateApplicableRateCommand)

@@ -30,6 +30,13 @@ public class ApplicableRateController {
         this.calculateApplicableRateUseCase = calculateApplicableRateUseCase;
     }
 
+    /**
+     * Controller that calculates applicable rate for the given brand, product and apply date.
+     * @param productId the product id.
+     * @param brandId the brand id.
+     * @param applyDate the apply date.
+     * @return applicable rate given input parameters or throws different Exceptions if an error occurs.
+     */
     @Operation(
             summary = "Retrieves the right rate for the provided input parameters",
             description = "Retrieves rate (price) applicable given product id, brand id and a date"

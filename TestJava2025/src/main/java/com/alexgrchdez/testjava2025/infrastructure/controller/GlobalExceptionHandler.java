@@ -12,6 +12,11 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+    /**
+     * Handler that catch ApplicableRateNotFoundException and returns the right response.
+     * @param ex ApplicableRateNotFoundException.
+     * @return HttpCode 404 and exception message.
+     */
     @ExceptionHandler(ApplicableRateNotFoundException.class)
     public ResponseEntity<ApiErrorResponse> handleNotFound(ApplicableRateNotFoundException ex) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
@@ -19,20 +24,36 @@ public class GlobalExceptionHandler {
     }
 
 
+    /**
+     * Handler that catch MissingServletRequestParameterException and returns the right response.
+     * @param ex MissingServletRequestParameterException.
+     * @return HttpCode 400 and exception message.
+     */
     @ExceptionHandler(MissingServletRequestParameterException.class)
     public ResponseEntity<ApiErrorResponse> handleMissingParam(MissingServletRequestParameterException ex) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(new ApiErrorResponse("MISSING_PARAMETER", ex.getParameterName() + " is mandatory"));
     }
 
+    /**
+     * Handler that catch MethodArgumentTypeMismatchException and returns the right response.
+     * @param ex MethodArgumentTypeMismatchException.
+     * @return HttpCode 400 and exception message.
+     */
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     public ResponseEntity<ApiErrorResponse> handleTypeMismatch(MethodArgumentTypeMismatchException ex) {
         String param = ex.getName();
-        String expectedType = ex.getRequiredType() != null ? ex.getRequiredType().getSimpleName() : "unknown";
+        Class<?> requiredType = ex.getRequiredType();
+        String expectedType = requiredType != null ? requiredType.getSimpleName() : "unknown";
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(new ApiErrorResponse("INVALID_PARAMETER", param + " must be of type " + expectedType));
     }
 
+    /**
+     * Handler that catch any Exception and returns the right response.
+     * @param ex Exception.
+     * @return HttpCode 500 and exception message.
+     */
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiErrorResponse> handleGenericException(Exception ex) {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
