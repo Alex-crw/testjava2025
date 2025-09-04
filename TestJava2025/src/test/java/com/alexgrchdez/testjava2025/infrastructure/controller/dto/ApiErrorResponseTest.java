@@ -15,8 +15,8 @@ class ApiErrorResponseTest {
     void testApiErrorShouldCreateApiErrorResponseField() {
         ApiErrorResponse error = new ApiErrorResponse("MISSING_PARAMETER", "Missing parameter");
 
-        assertThat( error.code().equals("MISSING_PARAMETER") );
-        assertThat( error.message() ).isEqualTo("Missing parameter");
+        assertThat(error.code().equals("MISSING_PARAMETER"));
+        assertThat(error.message()).isEqualTo("Missing parameter");
     }
 
     @Test

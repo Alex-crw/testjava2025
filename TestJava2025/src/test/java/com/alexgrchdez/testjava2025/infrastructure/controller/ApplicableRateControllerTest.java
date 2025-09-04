@@ -1,6 +1,5 @@
 package com.alexgrchdez.testjava2025.infrastructure.controller;
 
-import com.alexgrchdez.testjava2025.application.port.in.CalculateApplicableRateUseCase;
 import com.alexgrchdez.testjava2025.application.service.ApplicableRateService;
 import com.alexgrchdez.testjava2025.domain.exception.ApplicableRateNotFoundException;
 import com.alexgrchdez.testjava2025.domain.model.ApplicableRate;
@@ -20,12 +19,10 @@ import java.time.LocalDateTime;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
-
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
 @ExtendWith(MockitoExtension.class)
@@ -56,9 +53,9 @@ class ApplicableRateControllerTest {
         when(applicableRateService.getApplicableRate(any())).thenReturn(response);
 
         mockMvc.perform(get("/applicable-rate")
-                        .param("productId","35455")
-                        .param("brandId","1")
-                        .param("applyDate","2020-06-14T10:00:00"))
+                        .param("productId", "35455")
+                        .param("brandId", "1")
+                        .param("applyDate", "2020-06-14T10:00:00"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.productId").value(35455))
                 .andExpect(jsonPath("$.finalPrice").value(35.50));

@@ -57,9 +57,9 @@ public class ApplicableRateController {
             @RequestParam Long brandId,
             @Parameter(description = "Apply date", required = true)
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime applyDate) {
-        ApplicableRate applicableRate = calculateApplicableRateUseCase.getApplicableRate( new CalculateApplicableRateCommand( applyDate, productId, brandId) );
-        return ResponseEntity.ok( new CalculateApplicableRateResponse( applicableRate.productId(), applicableRate.brandId(),
+        ApplicableRate applicableRate = calculateApplicableRateUseCase.getApplicableRate(new CalculateApplicableRateCommand(applyDate, productId, brandId));
+        return ResponseEntity.ok(new CalculateApplicableRateResponse(applicableRate.productId(), applicableRate.brandId(),
                 applicableRate.rateId(), applicableRate.period().startDateTime(), applicableRate.period().endDateTime(), applicableRate.money().price(),
-                applicableRate.money().currency() ) );
+                applicableRate.money().currency()));
     }
 }

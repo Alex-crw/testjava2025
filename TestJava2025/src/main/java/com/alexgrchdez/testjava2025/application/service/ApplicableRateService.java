@@ -18,8 +18,8 @@ public class ApplicableRateService implements CalculateApplicableRateUseCase {
 
     @Override
     public ApplicableRate getApplicableRate(CalculateApplicableRateCommand calculateApplicableRateCommand) {
-        return this.priceRepositoryOutPort.getApplicableRate( calculateApplicableRateCommand )
-                .orElseThrow( () -> new ApplicableRateNotFoundException(
+        return this.priceRepositoryOutPort.getApplicableRate(calculateApplicableRateCommand)
+                .orElseThrow(() -> new ApplicableRateNotFoundException(
                         calculateApplicableRateCommand.productId(),
                         calculateApplicableRateCommand.brandId(),
                         calculateApplicableRateCommand.applyDate()

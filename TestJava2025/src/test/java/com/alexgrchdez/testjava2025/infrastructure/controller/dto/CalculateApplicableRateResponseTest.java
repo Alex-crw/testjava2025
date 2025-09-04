@@ -34,7 +34,7 @@ class CalculateApplicableRateResponseTest {
     }
 
     @Test
-    void  testCalculateApplicableRateShouldSerializeToJson() throws Exception {
+    void testCalculateApplicableRateShouldSerializeToJson() throws Exception {
         CalculateApplicableRateResponse response = new CalculateApplicableRateResponse(
                 35455L,
                 1L,

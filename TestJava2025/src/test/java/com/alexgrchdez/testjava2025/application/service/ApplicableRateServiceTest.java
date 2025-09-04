@@ -1,6 +1,5 @@
 package com.alexgrchdez.testjava2025.application.service;
 
-import com.alexgrchdez.testjava2025.application.port.in.CalculateApplicableRateUseCase;
 import com.alexgrchdez.testjava2025.application.port.out.PriceRepositoryOutPort;
 import com.alexgrchdez.testjava2025.domain.exception.ApplicableRateNotFoundException;
 import com.alexgrchdez.testjava2025.domain.model.ApplicableRate;
@@ -23,18 +22,18 @@ class ApplicableRateServiceTest {
     @Test
     void testGetApplicableRateShouldReturnCorrectRate() {
 
-        PriceRepositoryOutPort repository = mock( PriceRepositoryOutPort.class );
+        PriceRepositoryOutPort repository = mock(PriceRepositoryOutPort.class);
 
         ApplicableRate rate = new ApplicableRate(1L, 1L, 35455L,
                 new Period(LocalDateTime.of(2020, 6, 14, 0, 0), LocalDateTime.of(2020, 12, 31, 23, 59)),
-                        new Money( BigDecimal.valueOf(35.50), "EUR"));
+                new Money(BigDecimal.valueOf(35.50), "EUR"));
         when(repository.getApplicableRate(any(CalculateApplicableRateCommand.class)))
                 .thenReturn(Optional.of(rate));
 
-        ApplicableRateService serviceToTest = new ApplicableRateService( repository );
+        ApplicableRateService serviceToTest = new ApplicableRateService(repository);
 
-        ApplicableRate result = serviceToTest.getApplicableRate( new CalculateApplicableRateCommand(
-                LocalDateTime.of(2020,11,25,23,59),
+        ApplicableRate result = serviceToTest.getApplicableRate(new CalculateApplicableRateCommand(
+                LocalDateTime.of(2020, 11, 25, 23, 59),
                 1L, 1L
         ));
 
@@ -45,14 +44,14 @@ class ApplicableRateServiceTest {
     @Test
     void testGetApplicableRateReturnShouldThrowsException() {
 
-        PriceRepositoryOutPort repository = mock( PriceRepositoryOutPort.class );
+        PriceRepositoryOutPort repository = mock(PriceRepositoryOutPort.class);
 
         when(repository.getApplicableRate(any(CalculateApplicableRateCommand.class)))
                 .thenReturn(Optional.empty());
 
-        ApplicableRateService serviceToTest = new ApplicableRateService( repository );
+        ApplicableRateService serviceToTest = new ApplicableRateService(repository);
 
-        CalculateApplicableRateCommand command = new CalculateApplicableRateCommand( LocalDateTime.of(2020, 11, 25, 23, 59),
+        CalculateApplicableRateCommand command = new CalculateApplicableRateCommand(LocalDateTime.of(2020, 11, 25, 23, 59),
                 1L,
                 1L);
         assertThrows(ApplicableRateNotFoundException.class,

@@ -24,7 +24,7 @@ public class JpaPriceRepositoryAdapter implements PriceRepositoryOutPort {
     public Optional<ApplicableRate> getApplicableRate(CalculateApplicableRateCommand calculateApplicableRateCommand) {
         List<PriceEntity> applicableRate = this.springDataUserRepository.findApplicableRate(calculateApplicableRateCommand.productId(),
                 calculateApplicableRateCommand.brandId(), calculateApplicableRateCommand.applyDate());
-        return applicableRate.stream().findFirst().map(p -> new ApplicableRate( p.getProductId(), p.getBrandId(), p.getRateId(),
+        return applicableRate.stream().findFirst().map(p -> new ApplicableRate(p.getProductId(), p.getBrandId(), p.getRateId(),
                 new Period(p.getStartDateTime(), p.getEndDateTime()), new Money(p.getPrice(), p.getCurrency())));
     }
 }

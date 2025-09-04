@@ -9,19 +9,19 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name="prices")
+@Table(name = "prices")
 public class PriceEntity {
 
     @Id
-    @Column(name="rate_id")
+    @Column(name = "rate_id")
     private Long rateId;
-    @Column(name="brand_id")
+    @Column(name = "brand_id")
     private Long brandId;
-    @Column(name="product_id")
+    @Column(name = "product_id")
     private Long productId;
-    @Column(name="start_date_time")
+    @Column(name = "start_date_time")
     private LocalDateTime startDateTime;
-    @Column(name="end_date_time")
+    @Column(name = "end_date_time")
     private LocalDateTime endDateTime;
     private Integer priority;
     private BigDecimal price;

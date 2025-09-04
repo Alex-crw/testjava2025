@@ -1,6 +1,6 @@
 package com.alexgrchdez.testjava2025.domain.model;
 
-public record ApplicableRate( Long productId, Long brandId, Long rateId, Period period, Money money) {
+public record ApplicableRate(Long productId, Long brandId, Long rateId, Period period, Money money) {
 
     @Override
     public Long brandId() {
