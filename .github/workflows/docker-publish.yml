@@ -34,5 +34,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
+          context: ./TestJava2025
+          file: ./TestJava2025/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/testjava2025:latest
